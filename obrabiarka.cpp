@@ -79,39 +79,56 @@ void Obrabiarka::zsumuj()
 
 }
 
+
+Czas Obrabiarka::plusik(int _ile)
+{
+
+
+    Czas rezultat;
+    for (int i=0;i<_ile;i++)
+
+{
+
+    rezultat =rezultat + zbiorCzasow[i];
+
+    return rezultat;
+}
+  //  cout <<"Laczny czas wynosi:\n";
+  //  rezultat.wyswietl();
+}
+
+
+
 //cialo funkcji kopii pewnej ilosci elementow
-void Obrabiarka::kopia_n_czasow()
+Obrabiarka Obrabiarka::kopia_n_czasow()
 {
     cout << "\nWyswietlam liste skopiowanych czasow:"<<endl;
     int n;
     cout << "\nPodaj ile poczatkowych czasow chcesz skopiowac:" << endl;
     cin >> n;
-    if(n<=zbiorCzasow.size())
-    {
 
-    vector < Czas > kopia;
+    Obrabiarka kopia();
+
+   for ( int i = 0; i < kopia.size(); i++)
+ {
     kopia.assign(zbiorCzasow.begin(),zbiorCzasow.begin()+n);
-   for ( int i = 0; i < n; i++)
- {
-     cout <<"Nr." << i+1<<" ";
-     kopia[i].wyswietl();
+  /*   cout <<"Nr." << i+1<<" ";
+     kopia[i].wyswietl(); */
 
  }
  }
- else
- {
-     cout << "Lista nie ma tylu pozycji";
- }
+
+    return kopia;
  }
 
 
-//ciało stopera
+//cia³o stopera
 void Obrabiarka::stoper()
 {
 
 Czas zegarek;
 Obrabiarka replika();
-	
+
     int g,m,s,i;
     cout << "\nPodaj czas \n";
     cout << "Ustaw ilosc godzin \n"; cin >> g;
@@ -121,14 +138,16 @@ Obrabiarka replika();
     zegarek.u_czasu(g,m,s);
     zegarek.wyswietl();
 
-    for (i=0; replika.zsumuj()<zegarek) && (i<zbiorCzasow.size();i++)
+
+    for (i=0; replika.plusik()<zegarek) && (i<zbiorCzasow.size();i++)
     {
         replika.push_back(zbiorCzasow.at(i));
     }
-    if (z<replika.zsumuj())
+    if (z<replika.plusik())
     {
         replika.pop_back();
     }
 }
+
 
 
