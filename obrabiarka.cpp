@@ -105,13 +105,14 @@ void Obrabiarka::kopia_n_czasow()
  }
 
 
-//cia³o stopera
+//ciaÅ‚o stopera
 void Obrabiarka::stoper()
 {
 
 Czas zegarek;
-Obrabiarka replika;
-
+Obrabiarka replika();
+	
+    int g,m,s,i;
     cout << "\nPodaj czas \n";
     cout << "Ustaw ilosc godzin \n"; cin >> g;
     cout << "Ustaw ilosc minut \n"; cin >> m;
