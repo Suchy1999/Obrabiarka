@@ -125,6 +125,10 @@ Obrabiarka replika();
     {
         replika.push_back(zbiorCzasow.at(i));
     }
+    if (z<replika.zsumuj())
+    {
+        replika.pop_back();
+    }
 }
 
 
